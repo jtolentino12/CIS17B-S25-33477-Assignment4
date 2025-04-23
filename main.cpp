@@ -108,7 +108,7 @@ int main() {
     manager.addItem(item1);
     std::cout << "Adding item: ITEM002 - Fan Motor" << std::endl;
     manager.addItem(item2);
-    std::cout << "Attempting to add IteM001 again..." << std::endl;
+    std::cout << "Attempting to add ITEM001 again..." << std::endl;
     testDuplicateAddition(); // helper function
     std::cout << "Retrieving ITEM002..." << std::endl;
     try {
