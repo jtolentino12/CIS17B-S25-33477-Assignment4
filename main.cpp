@@ -37,24 +37,40 @@ private:
 public:
     void addItem(const std::shared_ptr<StoredItem>& item) {
         // TODO: Add item to both maps, throw if ID already exists
+        if (itemById.find(item->getId()) != itemById.end()) {
+            throw DuplicateItemException("Item with ID " + item->getId() + " already exists.");
+        }
+        itemById[item->getId()] = item;
+        itemByDescription[item->getDescription()] = item;
     }
 
     std::shared_ptr<StoredItem> findById(const std::string& id) const {
         // TODO: Return item if found or throw ItemNotFoundException
-        return nullptr;
+        auto it = itemById.find(id);
+        if (it == itemById.end()) {
+            throw ItemNotFoundException("Item with ID '" + id + "' not found.");
+        }
+        return it->second;
     }
 
     void removeItem(const std::string& id) {
         // TODO: Remove from both maps, throw if not found
+
     }
 
     void listItemsByDescription() const {
         // TODO: Iterate over itemByDescription and print info
+
     }
 };
 
-void testDuplicateAddition();
-void testItemNotFound();
+void testDuplicateAddition() {
+    //
+}
+
+void testItemNotFound() {
+    // 
+}
 
 int main() {
     // TODO: Create StorageManager and test functionality
